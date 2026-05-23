@@ -22,14 +22,11 @@ public class comprobanteController {
     @Autowired
     private comprobanteService comprobanteService;
 
-    @PostMapping()
-    public ResponseEntity<comprobante> postComprobante(@RequestBody comprobante comprobante) {
-        try {
-            return new ResponseEntity<>(comprobanteService.Crearcomprobante(comprobante),HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-    }
+    @PostMapping
+    public ResponseEntity crear(@RequestBody comprobante comprobante) {
+        return new ResponseEntity<>(comprobanteService.Crearcomprobante(comprobante),HttpStatus.CREATED
+    );
+}
     @GetMapping()
     public List<comprobante> getComprobante(){
         return comprobanteService.getComprobante();
