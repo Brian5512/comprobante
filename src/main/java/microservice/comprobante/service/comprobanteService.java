@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import jakarta.transaction.Transactional;
 import microservice.comprobante.model.comprobante;
-import microservice.comprobante.model.ComprobanteDTO;
+import microservice.comprobante.model.comprobanteDTO;
 import microservice.comprobante.repository.comprobanteRepository;
 
 @Service
@@ -22,7 +22,7 @@ public class comprobanteService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public ComprobanteDTO Crearcomprobante(comprobante comprobante) {
+    public comprobanteDTO Crearcomprobante(comprobante comprobante) {
 
         try {
             //
@@ -30,15 +30,15 @@ public class comprobanteService {
             String urlusuario =
                     "http://localhost:8080/api/v1/usuarios/" + comprobante.getIdUsuario();
 
-            ComprobanteDTO usuario =
-                    restTemplate.getForObject(urlusuario, ComprobanteDTO.class);
+            comprobanteDTO usuario =
+                    restTemplate.getForObject(urlusuario, comprobanteDTO.class);
 
             // MICROSERVICIO VENTAS
             String urlventa =
                     "http://localhost:8081/api/v1/ventas/" + comprobante.getIdVenta();
 
-            ComprobanteDTO venta =
-                    restTemplate.getForObject(urlventa, ComprobanteDTO.class);
+            comprobanteDTO venta =
+                    restTemplate.getForObject(urlventa, comprobanteDTO.class);
 
             if (venta == null) {
                 throw new RuntimeException("Venta no encontrada");
@@ -47,14 +47,14 @@ public class comprobanteService {
             // MICROSERVICIO PERFUMES
             String urlperfume =
                     "http://localhost:8082/api/v1/perfumes/" + venta.getIdPerfume();
-            ComprobanteDTO perfume =
-                    restTemplate.getForObject(urlperfume, ComprobanteDTO.class);
+            comprobanteDTO perfume =
+                    restTemplate.getForObject(urlperfume, comprobanteDTO.class);
 
             // MICROSERVICIO SUCURSALES
             String urlsucursal =
                     "http://localhost:8083/api/v1/sucursales/" + venta.getIdSucursal();
-            ComprobanteDTO sucursal =
-                    restTemplate.getForObject(urlsucursal, ComprobanteDTO.class);
+            comprobanteDTO sucursal =
+                    restTemplate.getForObject(urlsucursal, comprobanteDTO.class);
 
             // DATOS DEL COMPROBANTE
             if (usuario != null) {
@@ -69,7 +69,7 @@ public class comprobanteService {
 
             System.out.println("Comprobante guardado: " + guardado);
 
-            ComprobanteDTO dto = new ComprobanteDTO();
+            comprobanteDTO dto = new comprobanteDTO();
 
             //DATOS COMPROBANTE
             dto.setIdComprobante(guardado.getIdComprobante());

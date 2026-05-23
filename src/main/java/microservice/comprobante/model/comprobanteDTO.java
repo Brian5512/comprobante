@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComprobanteDTO {
+public class comprobanteDTO {
 
    //Datos del comprobante guardado 
     private Long idComprobante;
