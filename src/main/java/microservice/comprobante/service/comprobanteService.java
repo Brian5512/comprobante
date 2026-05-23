@@ -25,7 +25,7 @@ public class comprobanteService {
     public ComprobanteDTO Crearcomprobante(comprobante comprobante) {
 
         try {
-
+            //
             // MICROSERVICIO USUARIOS
             String urlusuario =
                     "http://localhost:8080/api/v1/usuarios/" + comprobante.getIdUsuario();
@@ -71,12 +71,12 @@ public class comprobanteService {
 
             ComprobanteDTO dto = new ComprobanteDTO();
 
-            // DATOS COMPROBANTE
+            //DATOS COMPROBANTE
             dto.setIdComprobante(guardado.getIdComprobante());
             dto.setEstado(guardado.getEstado());
             dto.setFechaEmision(guardado.getFechaEmision());
 
-            // DATOS USUARIO
+            //DATOS USUARIO
             if (usuario != null) {
                 dto.setNombreUsuario(usuario.getNombreUsuario());
                 dto.setCorreoCliente(usuario.getCorreoCliente());

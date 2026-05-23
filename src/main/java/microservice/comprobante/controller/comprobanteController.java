@@ -25,13 +25,13 @@ public class comprobanteController {
     @PostMapping()
     public ResponseEntity<comprobante> postComprobante(@RequestBody comprobante comprobante) {
         try {
-            return new ResponseEntity<>(comprobanteService.postComprobante(comprobante),HttpStatus.OK);
+            return new ResponseEntity<>(comprobanteService.Crearcomprobante(comprobante),HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
     @GetMapping()
-    public ResponseEntity<List<comprobante>> getComprobante(){
-        return comprobanteService.findAll();
+    public List<comprobante> getComprobante(){
+        return comprobanteService.getComprobante();
     }
     }

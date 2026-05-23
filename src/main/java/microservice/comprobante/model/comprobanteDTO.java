@@ -9,26 +9,34 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class comprobanteDTO {
+public class ComprobanteDTO {
 
+   //Datos del comprobante guardado 
     private Long idComprobante;
-
-    private Long idVenta;
-
-    private String nombreCliente;
-
-    private String nombreUsuario;
-
-    private String tipoComprobante;
-
-    private Double subtotal;
-
-    private Double iva;
-
-    private Double total;
-
-    private LocalDate fechaEmision;
-
     private String estado;
+    private LocalDate fechaEmision;
+ 
+    //Datos del Usuario 
+    private String nombreUsuario;
+    private String correoCliente;
+ 
+    //Datos de la Venta
+    private Long idVenta;
+    private Double totalVenta;
+    private Double descuentoVenta;
+    private String estadoVenta;
+ 
+    //Datos del Perfume
+    private Long idPerfume;
+    private String nombrePerfume;
+    private String marcaPerfume;
+    private Double precioPerfume;
+ 
+    //Datos de la Sucursal
+    private Long idSucursal;
+    private String nombreSucursal;
+    private String ciudadSucursal;
+    private String direccionSucursal;
 }
+ 
 
