@@ -64,6 +64,10 @@ public class comprobanteService {
             comprobante.setTotal(venta.getTotalVenta());
             comprobante.setFechaEmision(LocalDate.now());
             comprobante.setEstado("EMITIDO");
+            double iva = venta.getTotalVenta() * 0.19;
+            double subtotal = venta.getTotalVenta() - iva;
+            comprobante.setIva(iva);
+            comprobante.setSubtotal(subtotal);
 
             comprobante guardado = comprobanteRepository.save(comprobante);
 
