@@ -56,6 +56,12 @@ public class comprobanteService {
             comprobanteDTO sucursal =
                     restTemplate.getForObject(urlsucursal, comprobanteDTO.class);
 
+            // MICROSERVICIO SOPORTE
+            String urlsoporte =
+                    "http://localhost:8093/api/v1/reportes/" + venta.getIdSoporte();
+            comprobanteDTO soporte =
+                    restTemplate.getForObject(urlsoporte, comprobanteDTO.class);
+
             // DATOS DEL COMPROBANTE
             if (usuario != null) {
                 comprobante.setCorreoUsuario(usuario.getCorreoUsuario());
@@ -104,6 +110,14 @@ public class comprobanteService {
                 dto.setNombreSucursal(sucursal.getNombreSucursal());
                 dto.setCiudadSucursal(sucursal.getCiudadSucursal());
                 dto.setDireccionSucursal(sucursal.getDireccionSucursal());
+            }
+
+            // DATOS SOPORTE
+            if (soporte != null) {
+                dto.setFechaSoporte(soporte.getFechaSoporte());
+                dto.setRazonSoporte(soporte.getRazonSoporte());
+                dto.setDescripcionSoporte(soporte.getDescripcionSoporte());
+                dto.setEstadoSoporte(soporte.getEstadoSoporte());
             }
 
 

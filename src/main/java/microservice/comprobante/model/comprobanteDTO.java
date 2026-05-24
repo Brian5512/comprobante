@@ -37,6 +37,13 @@ public class comprobanteDTO {
     private String nombreSucursal;
     private String ciudadSucursal;
     private String direccionSucursal;
+
+    //Datos de Soporte
+    private Long idSoporte;
+    private String fechaSoporte;
+    private String razonSoporte;
+    private String descripcionSoporte;
+    private String estadoSoporte;
 }
- 
+
 

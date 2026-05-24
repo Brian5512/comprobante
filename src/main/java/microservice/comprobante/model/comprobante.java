@@ -51,4 +51,10 @@ private LocalDate fechaEmision;
 
 @Column(nullable = false, length = 30)
 private String estado;
+
+@Column(nullable = false)
+private String razonReporte;
+
+@Column(nullable = false)
+private String descripcionReporte;
 }
