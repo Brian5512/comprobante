@@ -22,7 +22,7 @@ public class comprobanteController {
     @Autowired
     private comprobanteService comprobanteService;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity crear(@RequestBody comprobante comprobante) {
         return new ResponseEntity<>(comprobanteService.Crearcomprobante(comprobante),HttpStatus.CREATED
     );

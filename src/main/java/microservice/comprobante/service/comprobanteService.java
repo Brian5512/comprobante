@@ -28,14 +28,14 @@ public class comprobanteService {
             //
             // MICROSERVICIO USUARIOS
             String urlusuario =
-                    "http://localhost:8080/api/v1/usuarios/" + comprobante.getIdUsuario();
+                    "http://localhost:8099/api/v1/usuarios/" + comprobante.getIdUsuario();
 
             comprobanteDTO usuario =
                     restTemplate.getForObject(urlusuario, comprobanteDTO.class);
 
             // MICROSERVICIO VENTAS
             String urlventa =
-                    "http://localhost:8081/api/v1/ventas/" + comprobante.getIdVenta();
+                    "http://localhost:8094/api/v1/venta/" + comprobante.getIdVenta();
 
             comprobanteDTO venta =
                     restTemplate.getForObject(urlventa, comprobanteDTO.class);
@@ -46,19 +46,19 @@ public class comprobanteService {
 
             // MICROSERVICIO PERFUMES
             String urlperfume =
-                    "http://localhost:8082/api/v1/perfumes/" + venta.getIdPerfume();
+                    "http://localhost:8092/api/v1/perfumes/" + venta.getIdPerfume();
             comprobanteDTO perfume =
                     restTemplate.getForObject(urlperfume, comprobanteDTO.class);
 
             // MICROSERVICIO SUCURSALES
             String urlsucursal =
-                    "http://localhost:8083/api/v1/sucursales/" + venta.getIdSucursal();
+                    "http://localhost:8091/api/v1/sucursales/" + venta.getIdSucursal();
             comprobanteDTO sucursal =
                     restTemplate.getForObject(urlsucursal, comprobanteDTO.class);
 
             // DATOS DEL COMPROBANTE
             if (usuario != null) {
-                comprobante.setCorreoCliente(usuario.getCorreoCliente());
+                comprobante.setCorreoUsuario(usuario.getCorreoUsuario());
             }
 
             comprobante.setTotal(venta.getTotalVenta());
@@ -79,7 +79,7 @@ public class comprobanteService {
             //DATOS USUARIO
             if (usuario != null) {
                 dto.setNombreUsuario(usuario.getNombreUsuario());
-                dto.setCorreoCliente(usuario.getCorreoCliente());
+                dto.setCorreoUsuario(usuario.getCorreoUsuario());
             }
 
             // DATOS VENTA

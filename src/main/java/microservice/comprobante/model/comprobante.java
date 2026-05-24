@@ -28,14 +28,14 @@ private Long idComprobante;
 @Column(nullable = false)
 private Long idVenta;
 
-@Column(nullable = false)
-private Long idCliente;
+//@Column(nullable = false)
+//private Long idCliente;
 
 @Column(nullable = false)
 private Long idUsuario;
 
 @Column(nullable = false, length = 50)
-private String correoCliente;
+private String correoUsuario;
 
 @Column(nullable = false)
 private Double subtotal;

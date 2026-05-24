@@ -18,7 +18,7 @@ public class comprobanteDTO {
  
     //Datos del Usuario 
     private String nombreUsuario;
-    private String correoCliente;
+    private String correoUsuario;
  
     //Datos de la Venta
     private Long idVenta;
